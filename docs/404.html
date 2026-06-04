@@ -288,32 +288,34 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-[#294830] text-[#ecf3e7] py-12 lg:py-16">
+  <footer class="bg-[#294830] text-[#ecf3e7] pb-12 lg:pb-4">
     <div class="container mx-auto px-6">
 
-      <!-- Top Section: Logo & Info -->
-      <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 lg:gap-12 mb-8">
+      <div class="grid gap-10 pt-4 md:grid-cols-2 xl:grid-cols-1 xl:gap-12">
 
-        <!-- Logo Container (like header) -->
-        <div class="flex flex-col items-center lg:items-start">
-          <div class="flex flex-col items-center bg-[#294830] px-6 pb-6">
-            <img src="/assets/images/logo-transparent.png" alt="MD Compleet Logo" class="h-16 w-16 mb-3"
+        <!-- Brand -->
+        <div class="flex flex-col items-center">
+          <div class="flex flex-col justify-center items-center">
+            <img src="./assets/images/logos/logo-transparent.png" alt="MD Compleet Logo" class="h-16 w-16 mb-3"
               loading="lazy">
-            <div class="flex flex-col gap-1 justify-center items-center">
+            <div class="flex flex-col gap-1 items-center">
               <span class="text-xl leading-none tracking-[0.1em] font-bold text-white uppercase font-baskervville">MD
                 Compleet</span>
-              <span class="text-sm leading-none tracking-[0.2em] text-[#c3a967] font-georama">Hoveniers</span>
+              <span class="text-sm leading-none tracking-[0.2em] text-[#c3a967] font-georama">Buitenwerk</span>
             </div>
           </div>
         </div>
 
-        <!-- Address & Contact Buttons -->
-        <div class="flex flex-col gap-6 lg:gap-8">
+        <blockquote class="text-center text-3xl lg:text-5xl font-georama leading-tight">
+          <span class="text-[#c3a967]">buitenruimtes met</span><br class="md:hidden"> karakter
+        </blockquote>
 
-          <!-- Contact Buttons -->
+        <!-- Contact & Social -->
+        <div class="flex flex-col gap-4">
+          <h3 class="text-lg md:text-xl font-semibold text-[#c3a967] font-georama text-center">Contact</h3>
           <div class="flex flex-wrap gap-3 justify-center">
             <a href="tel:+31612345678"
-              class="flex items-center gap-2 px-3 py-2 bg-[#ecf3e7] text-[#294830] rounded-lg hover:bg-[#d4b978] transition-colors duration-200 font-georama font-semibold text-sm"
+              class="inline-flex items-center justify-center h-10 w-10 bg-[#ecf3e7] text-[#294830] rounded-lg hover:bg-[#d4b978] transition-colors duration-200"
               aria-label="Bel ons">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path
@@ -322,7 +324,7 @@
             </a>
 
             <a href="mailto:info@mdcompleet.nl"
-              class="flex items-center gap-2 px-3 py-2 bg-[#ecf3e7] text-[#294830] rounded-lg hover:bg-[#d4b978] transition-colors duration-200 font-georama font-semibold text-sm"
+              class="inline-flex items-center justify-center h-10 w-10 bg-[#ecf3e7] text-[#294830] rounded-lg hover:bg-[#d4b978] transition-colors duration-200"
               aria-label="Mail ons">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
@@ -331,7 +333,7 @@
             </a>
 
             <a href="https://www.instagram.com/mdcompleet/" target="_blank" rel="noopener noreferrer"
-              class="flex items-center gap-2 px-3 py-2 bg-[#ecf3e7] text-[#294830] rounded-lg hover:bg-[#d4b978] transition-colors duration-200 font-georama font-semibold text-sm"
+              class="inline-flex items-center justify-center h-10 w-10 bg-[#ecf3e7] text-[#294830] rounded-lg hover:bg-[#d4b978] transition-colors duration-200"
               aria-label="Volg ons op Instagram">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path
@@ -340,7 +342,7 @@
             </a>
 
             <a href="https://www.facebook.com/mdcompleet" target="_blank" rel="noopener noreferrer"
-              class="flex items-center gap-2 px-3 py-2 bg-[#ecf3e7] text-[#294830] rounded-lg hover:bg-[#d4b978] transition-colors duration-200 font-georama font-semibold text-sm"
+              class="inline-flex items-center justify-center h-10 w-10 bg-[#ecf3e7] text-[#294830] rounded-lg hover:bg-[#d4b978] transition-colors duration-200"
               aria-label="Volg ons op Facebook">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path
@@ -348,85 +350,103 @@
               </svg>
             </a>
           </div>
-        </div>
 
-        <!-- Separator -->
-        <div class="w-full h-[2px] bg-[#c3a967]"></div>
+          <div class="space-y-1 text-sm md:text-base font-georama text-center">
+            <a href="tel:+31612345678" class="block hover:text-[#c3a967] transition-colors duration-200">+31 6 123 456
+              78</a>
+            <a href="mailto:info@mdcompleet.nl"
+              class="block hover:text-[#c3a967] transition-colors duration-200">info@mdcompleet.nl</a>
+          </div>
+        </div>
 
         <!-- Navigation Links -->
-        <nav class="flex flex-col gap-3">
-          <h3 class="text-lg font-semibold text-[#c3a967] font-georama mb-1">Navigatie</h3>
-          <ul class="flex flex-col gap-2 text-sm font-georama">
-            <li>
-              <a href="/#home" class="hover:text-[#c3a967] transition-colors duration-200">
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="/#tuinaanleg" class="hover:text-[#c3a967] transition-colors duration-200">
-                Tuinaanleg & tuinrenovatie
-              </a>
-            </li>
-            <li>
-              <a href="/#bestrating" class="hover:text-[#c3a967] transition-colors duration-200">
-                Bestrating
-              </a>
-            </li>
-            <li>
-              <a href="/#schuttingen" class="hover:text-[#c3a967] transition-colors duration-200">
-                Schuttingen & overkappingen
-              </a>
-            </li>
-            <li>
-              <a href="/#grondwerk" class="hover:text-[#c3a967] transition-colors duration-200">
-                Grondwerk & sloopwerk
-              </a>
-            </li>
-            <li>
-              <a href="/#ons-verhaal" class="hover:text-[#c3a967] transition-colors duration-200">
-                Ons verhaal
-              </a>
-            </li>
-            <li>
-              <a href="/#contact" class="hover:text-[#c3a967] transition-colors duration-200">
-                Contact
-              </a>
-            </li>
-          </ul>
+        <nav class="flex w-full flex-col gap-3">
+          <h3 class="text-lg md:text-xl font-semibold text-[#c3a967] font-georama text-center">Navigatie</h3>
+          <div class="flex justify-center gap-2 gap-x-4 gap-y-2 text-sm md:text-base font-georama text-center">
+            <ul class="grid grid-cols-2 gap-4 justify-center items-start">
+              <li>
+                <a href="./" class="flex w-full justify-start hover:text-[#c3a967] transition-colors duration-200">
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="./ons-verhaal"
+                  class="flex w-full justify-start hover:text-[#c3a967] transition-colors duration-200">
+                  Ons verhaal
+                </a>
+              </li>
+              <li>
+                <a href="./contact" class="flex w-full justify-start hover:text-[#c3a967] transition-colors duration-200">
+                  Contact
+                </a>
+              </li>
+              <li>
+                <a href="./diensten/tuinaanleg-tuinrenovatie/"
+                  class="flex w-full justify-start hover:text-[#c3a967] transition-colors duration-200">
+                  Tuinaanleg
+                </a>
+              </li>
+              <li>
+                <a href="./diensten/tuinaanleg-tuinrenovatie/"
+                  class="flex w-full justify-start hover:text-[#c3a967] transition-colors duration-200">
+                  Tuinrenovatie
+                </a>
+              </li>
+              <li>
+                <a href="./diensten/bestrating/"
+                  class="flex w-full justify-start hover:text-[#c3a967] transition-colors duration-200">
+                  Bestrating
+                </a>
+              </li>
+              <li>
+                <a href="./diensten/schuttingen-overkappingen/"
+                  class="flex w-full justify-start hover:text-[#c3a967] transition-colors duration-200">
+                  Schuttingen
+                </a>
+              </li>
+              <li>
+                <a href="./diensten/schuttingen-overkappingen/"
+                  class="flex w-full justify-start hover:text-[#c3a967] transition-colors duration-200">
+                  Overkappingen
+                </a>
+              </li>
+              <li>
+                <a href="./diensten/grondwerk-sloopwerk/"
+                  class="flex w-full justify-start hover:text-[#c3a967] transition-colors duration-200">
+                  Grondwerk
+                </a>
+              </li>
+              <li>
+                <a href="./diensten/grondwerk-sloopwerk/"
+                  class="flex w-full justify-start hover:text-[#c3a967] transition-colors duration-200">
+                  Sloopwerk
+                </a>
+              </li>
+            </ul>
+          </div>
         </nav>
-
       </div>
 
-      <!-- Quote Section -->
-      <div class="pt-8 mb-8">
-        <blockquote class="text-start text-4xl lg:text-lg font-georama max-w-2xl mx-auto">
-          <span class="text-[#c3a967]">buitenruimtes met</span><br>karakter
-        </blockquote>
-      </div>
+      <div class="mt-10 h-px w-full bg-[#c3a967]/70"></div>
 
       <!-- Bottom Section: Design Credit & Copyright -->
-      <div class="pt-6 flex flex-col md:flex-row justify-between items-start gap-1 text-xs font-georama">
+      <div class="pt-6 flex flex-col gap-3 text-xs font-georama items-center justify-center">
 
-        <div class="text-center md:text-right">
+        <div class="flex items-center justify-center gap-5 md:justify-start">
+          <a href="./privacy" class="hover:text-[#c3a967] transition-colors duration-200">Privacy</a>
+          <a href="./disclaimer" class="hover:text-[#c3a967] transition-colors duration-200">Disclaimer</a>
+        </div>
+
+        <div class="text-center md:text-left text-xs font-georama">
           <p>MD Compleet © <span id="copyright-year">2024</span></p>
+          <div class="flex items-center justify-center gap-1 md:justify-end">
+            <span>Website door</span>
+            <a href="https://www.riceweb.nl" target="_blank" rel="noopener noreferrer"
+              class="hover:text-[#c3a967] transition-colors duration-200">
+              Rice Web
+            </a>
+          </div>
         </div>
-
-        <a href="/privacy" class="text-center md:text-right">
-          <p>Privacy</p>
-        </a>
-
-        <a href="/disclaimer" class="text-center md:text-right">
-          <p>Disclaimer</p>
-        </a>
-
-        <div class="flex items-center gap-1">
-          <span>Webdesign:</span>
-          <a href="https://www.riceweb.nl" target="_blank" rel="noopener noreferrer"
-            class="transition-colors duration-200">
-            Rice Web
-          </a>
-        </div>
-
       </div>
 
     </div>
