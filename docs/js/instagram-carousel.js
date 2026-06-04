@@ -98,6 +98,16 @@ document.addEventListener('DOMContentLoaded', () => {
     let touchStartX = 0;
     let isCarouselVisible = false;
 
+    const updateControls = () => {
+      if (prevButton) {
+        prevButton.disabled = currentIndex === 0;
+      }
+
+      if (nextButton) {
+        nextButton.disabled = currentIndex === slides.length - 1;
+      }
+    };
+
     const updateVideos = () => {
       slides.forEach((slide, index) => {
         const video = slide.tagName === 'VIDEO' ? slide : slide.querySelector('video');
@@ -118,12 +128,19 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const goToSlide = (index) => {
-      const slideIndex = (index + slides.length) % slides.length;
+      const slideIndex = Math.max(0, Math.min(index, slides.length - 1));
+
+      if (slideIndex === currentIndex) {
+        updateControls();
+        return;
+      }
+
       currentIndex = slideIndex;
       track.scrollTo({
         left: slideIndex * track.clientWidth,
         behavior: 'smooth'
       });
+      updateControls();
       updateVideos();
     };
 
@@ -188,5 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
       isCarouselVisible = true;
       updateVideos();
     }
+
+    updateControls();
   });
 });
