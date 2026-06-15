@@ -42,11 +42,23 @@ document.addEventListener('DOMContentLoaded', () => {
   
   let isMenuOpen = false;
   let isSubmenuOpen = false;
+  let isScrollTicking = false;
+  let lastScrollPastThreshold = null;
+  let logoHiddenState = null;
+  let headerShadowState = null;
+  let headerBackgroundState = null;
+  let ivyVisibleState = null;
 
   const getTopScale = () => (desktopMediaQuery.matches ? 0.9 : 0.75);
   const getHiddenScale = () => (desktopMediaQuery.matches ? 0.75 : 0.75);
 
   const setLogoState = (hideLogo) => {
+    if (logoHiddenState === hideLogo) {
+      return;
+    }
+
+    logoHiddenState = hideLogo;
+
     if (hideLogo) {
       logoContainer.style.transform = `translateY(-40px) scale(${getHiddenScale()})`;
       logoImg.style.opacity = '0';
@@ -58,10 +70,21 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const setHeaderShadow = (showShadow) => {
+    if (headerShadowState === showShadow) {
+      return;
+    }
+
+    headerShadowState = showShadow;
     header.classList.toggle('shadow-lg', shouldShowScrollShadow && showShadow);
   };
 
   const setHeaderBackground = (showBackground) => {
+    if (headerBackgroundState === showBackground) {
+      return;
+    }
+
+    headerBackgroundState = showBackground;
+
     if (!shouldToggleHeaderBackground) {
       header.style.backgroundColor = '';
       return;
@@ -71,6 +94,12 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const setIvyVisibility = (showIvy) => {
+    if (ivyVisibleState === showIvy) {
+      return;
+    }
+
+    ivyVisibleState = showIvy;
+
     if (!shouldToggleHeaderBackground) {
       ivyOverlay.style.opacity = '0';
       return;
@@ -79,28 +108,39 @@ document.addEventListener('DOMContentLoaded', () => {
     ivyOverlay.style.opacity = showIvy ? '0.5' : '0';
   };
 
-  setHeaderBackground(window.scrollY > 10);
-  setIvyVisibility(window.scrollY > 10);
+  const applyScrollState = (scrollY) => {
+    const hasScrolledPastThreshold = scrollY > 10;
+
+    if (lastScrollPastThreshold === hasScrolledPastThreshold) {
+      return;
+    }
+
+    lastScrollPastThreshold = hasScrolledPastThreshold;
+    setHeaderBackground(hasScrolledPastThreshold);
+    setIvyVisibility(hasScrolledPastThreshold);
+
+    if (isMenuOpen) {
+      return;
+    }
+
+    setLogoState(hasScrolledPastThreshold);
+    setHeaderShadow(hasScrolledPastThreshold);
+  };
+
+  applyScrollState(window.scrollY);
 
   // Logo scroll animatie
   window.addEventListener('scroll', () => {
     // Skip scroll animatie als menu open is
-    if (isMenuOpen) return;
+    if (isMenuOpen || isScrollTicking) return;
 
-    const scrollY = window.scrollY;
-    setHeaderBackground(scrollY > 10);
-    setIvyVisibility(scrollY > 10);
-    
-    if (scrollY > 10) {
-      // Scroll naar beneden - verplaats logo omhoog met transform
-      setLogoState(true);
-      setHeaderShadow(true);
-    } else {
-      // Terug naar boven - herstel standaard staat
-      setLogoState(false);
-      setHeaderShadow(false);
-    }
-  });
+    isScrollTicking = true;
+
+    requestAnimationFrame(() => {
+      applyScrollState(window.scrollY);
+      isScrollTicking = false;
+    });
+  }, { passive: true });
 
   const setHamburgerState = (open) => {
     line1.classList.toggle('rotate-45', open);
@@ -119,8 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const closeMenu = () => {
     isMenuOpen = false;
-    setHeaderBackground(window.scrollY > 10);
-    setIvyVisibility(window.scrollY > 10);
+    applyScrollState(window.scrollY);
     mobileMenu.classList.add('opacity-0', 'pointer-events-none');
     mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
     mobileMenuPanel.classList.add('translate-x-[110%]', 'rotate-[1.5deg]', 'scale-[0.98]');
@@ -141,19 +180,12 @@ document.addEventListener('DOMContentLoaded', () => {
     menuToggle.setAttribute('aria-expanded', 'false');
     closeSubmenu();
 
-    if (window.scrollY > 10) {
-      setLogoState(true);
-      setHeaderShadow(true);
-    } else {
-      setLogoState(false);
-      setHeaderShadow(false);
-    }
+    applyScrollState(window.scrollY);
   };
 
   const openMenu = () => {
     isMenuOpen = true;
-    setHeaderBackground(window.scrollY > 10);
-    setIvyVisibility(window.scrollY > 10);
+    applyScrollState(window.scrollY);
     mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
     mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
     mobileMenuPanel.classList.remove('translate-x-[110%]', 'rotate-[1.5deg]', 'scale-[0.98]');
@@ -178,8 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   desktopMediaQuery.addEventListener('change', () => {
-    setHeaderBackground(window.scrollY > 10);
-    setIvyVisibility(window.scrollY > 10);
+    applyScrollState(window.scrollY);
 
     if (desktopMediaQuery.matches && isMenuOpen) {
       closeMenu();

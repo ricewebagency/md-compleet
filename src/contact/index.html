@@ -292,7 +292,7 @@
 
       <a href="#contact"
         class="mobile-menu-item relative w-full text-base tracking-[0.02em] z-10 inline-flex gap-1 mt-2 justify-center items-center rounded-[5px] border-[1px] border-[#294830] bg-transparent px-4 py-2 text-[#294830] font-medium font-georama transition-all duration-500 opacity-0 translate-x-6">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
           <path
             d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.85 21 3 13.15 3 3a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.2 2.2z">
           </path>
@@ -460,6 +460,26 @@
                 </svg>
               </label>
 
+              <!-- Timmerwerk -->
+              <label class="relative cursor-pointer group">
+                <input type="radio" name="service" value="timmerwerk" class="peer sr-only">
+                <div class="px-4 py-3 bg-[#f8f6f2] border-2 border-[#294830]/20 rounded-lg transition-all duration-200 
+                            peer-checked:border-[#c3a967] peer-checked:bg-[#c3a967]/10 
+                            hover:border-[#c3a967]/50 hover:bg-[#294830]/5
+                            flex items-center justify-center text-center">
+                  <span class="text-sm font-medium text-[#294830] font-georama">
+                    Timmerwerk
+                  </span>
+                </div>
+                <svg
+                  class="absolute top-2 right-2 w-5 h-5 text-[#c3a967] opacity-0 peer-checked:opacity-100 transition-opacity"
+                  fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd" />
+                </svg>
+              </label>
+
               <!-- Grondwerk -->
               <label class="relative cursor-pointer group">
                 <input type="radio" name="service" value="grondwerk" class="peer sr-only">
@@ -598,11 +618,11 @@
             </a>
           </div>
 
-          <div class="space-y-1 text-sm md:text-base font-georama text-center">
-            <a href="tel:+31612345678" class="block hover:text-[#c3a967] transition-colors duration-200">+31 6 123 456
+          <div class="space-y-1 flex flex-col text-sm md:text-base font-georama items-center text-center">
+            <a href="tel:+31612345678" class="w-max block hover:text-[#c3a967] transition-colors duration-200">+31 6 123 456
               78</a>
             <a href="mailto:info@mdcompleet.nl"
-              class="block hover:text-[#c3a967] transition-colors duration-200">info@mdcompleet.nl</a>
+              class="w-max block hover:text-[#c3a967] transition-colors duration-200">info@mdcompleet.nl</a>
           </div>
         </div>
 
