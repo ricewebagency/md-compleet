@@ -1917,6 +1917,10 @@ video {
   padding-bottom: 0px;
 }
 
+.pb-1{
+  padding-bottom: 0.25rem;
+}
+
 .pb-10{
   padding-bottom: 2.5rem;
 }
@@ -1987,10 +1991,6 @@ video {
 
 .pt-\[-2px\]{
   padding-top: -2px;
-}
-
-.pb-1{
-  padding-bottom: 0.25rem;
 }
 
 .text-center{
@@ -2652,14 +2652,6 @@ video {
     max-width: none;
   }
 
-  .sm\:max-w-lg{
-    max-width: 32rem;
-  }
-
-  .sm\:max-w-sm{
-    max-width: 24rem;
-  }
-
   .sm\:max-w-xs{
     max-width: 20rem;
   }
@@ -3110,10 +3102,6 @@ video {
 
   .lg\:gap-8{
     gap: 2rem;
-  }
-
-  .lg\:gap-12{
-    gap: 3rem;
   }
 
   .lg\:space-y-5 > :not([hidden]) ~ :not([hidden]){
