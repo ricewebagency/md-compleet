@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileMenuTagline = document.getElementById('mobile-menu-tagline');
   const desktopMediaQuery = window.matchMedia('(min-width: 1024px)');
   
-  if (!header || !logoContainer || !menuToggle || !mobileMenu || !mobileMenuPanel || !dienstenToggle || !dienstenSubmenu) {
+  if (!header || !logoContainer || !menuToggle || !mobileMenu || !dienstenToggle || !dienstenSubmenu) {
     return;
   }
 
@@ -162,8 +162,10 @@ document.addEventListener('DOMContentLoaded', () => {
     applyScrollState(window.scrollY);
     mobileMenu.classList.add('opacity-0', 'pointer-events-none');
     mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
-    mobileMenuPanel.classList.add('translate-x-[110%]', 'rotate-[1.5deg]', 'scale-[0.98]');
-    mobileMenuPanel.classList.remove('translate-x-0', 'rotate-0', 'scale-100');
+    if (mobileMenuPanel) {
+      mobileMenuPanel.classList.add('translate-x-[110%]', 'rotate-[1.5deg]', 'scale-[0.98]');
+      mobileMenuPanel.classList.remove('translate-x-0', 'rotate-0', 'scale-100');
+    }
     mobileMenuItems.forEach((item) => {
       item.classList.add('opacity-0', 'translate-x-6');
       item.classList.remove('opacity-100', 'translate-x-0');
@@ -188,8 +190,10 @@ document.addEventListener('DOMContentLoaded', () => {
     applyScrollState(window.scrollY);
     mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
     mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
-    mobileMenuPanel.classList.remove('translate-x-[110%]', 'rotate-[1.5deg]', 'scale-[0.98]');
-    mobileMenuPanel.classList.add('translate-x-0', 'rotate-0', 'scale-100');
+    if (mobileMenuPanel) {
+      mobileMenuPanel.classList.remove('translate-x-[110%]', 'rotate-[1.5deg]', 'scale-[0.98]');
+      mobileMenuPanel.classList.add('translate-x-0', 'rotate-0', 'scale-100');
+    }
     mobileMenuItems.forEach((item, index) => {
       item.style.transitionDelay = `${100 + index * 55}ms`;
       item.classList.remove('opacity-0', 'translate-x-6');
