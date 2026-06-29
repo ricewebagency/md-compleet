@@ -772,11 +772,11 @@
               </p>
             </div>
             <div class="flex flex-col gap-1">
-              <div class="relative aspect-video my-4 lg:hidden">
+              <div class="relative aspect-video my-4 overflow-hidden lg:hidden">
                 <div class="absolute inset-0 bg-[#294830]/15 rounded-2xl md:rounded-2xl lg:rounded-3xl"></div>
                 <img src="./assets/images/impressions/impression-6.jpg"
                   alt="Twee hoveniers maken aantekeningen op een clipboard"
-                  class="w-full h-auto rounded-[5px] shadow-sm" loading="lazy" />
+                  class="absolute inset-0 h-full w-full object-cover [overflow-clip-margin:unset] rounded-[5px] shadow-sm" loading="lazy" />
               </div>
               <h3 class="text-xl font-semibold text-[#294830] font-georama">
                 Slim ingericht, praktisch in gebruik.
@@ -807,7 +807,7 @@
         <!-- Image Side -->
         <div class="order-1 md:order-2 relative z-[1]">
           <div
-            class="relative h-full w-full md:aspect-[10/11] md:max-h-[450px] rounded-lg md:rounded-3xl lg:rounded-[2rem] overflow-hidden">
+            class="relative w-full aspect-[10/11] max-h-[450px] rounded-lg md:rounded-3xl lg:rounded-[2rem] overflow-hidden">
             <img src="./assets/images/impressions/impression-2.jpg"
               alt="Professioneel buitenwerk met focus op de ondergrond"
               class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" loading="lazy" />
